@@ -13,6 +13,8 @@ import { Graficas1Component } from './pages/graficas1/graficas1.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { BreadcrumsComponent } from './shared/breadcrums/breadcrums.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { PagesComponent } from './pages/pages.component';
+import { RegisterComponent } from './login/register.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     Graficas1Component,
     HeaderComponent,
     BreadcrumsComponent,
-    SidebarComponent
+    SidebarComponent,
+    PagesComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
