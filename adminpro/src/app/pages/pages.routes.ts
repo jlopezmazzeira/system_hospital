@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
+import { PagesComponent } from './pages.component';
 
 export const pagesRoutes: Routes = [
   {
@@ -18,4 +19,4 @@ export const pagesRoutes: Routes = [
   }
 ];
 
-export const PAGES_ROUTES = RouterModule.forChild(pagesRoutes, { useHash: true });
+export const PAGES_ROUTES = RouterModule.forChild(pagesRoutes);
