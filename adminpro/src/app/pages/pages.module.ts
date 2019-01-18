@@ -14,25 +14,29 @@ import { PagesComponent } from './pages.component';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
 import { AccoutSettingsComponent } from './accout-settings/accout-settings.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
   declarations: [
-  	PagesComponent,
-  	DashboardComponent,
-  	ProgressComponent,
-  	Graficas1Component,
+    PagesComponent,
+    DashboardComponent,
+    ProgressComponent,
+    Graficas1Component,
     IncrementadorComponent,
     GraficoDonaComponent,
-    AccoutSettingsComponent
+    AccoutSettingsComponent,
+    PromesasComponent,
+    RxjsComponent
   ],
-  exports:[
-  	PagesComponent,
-  	DashboardComponent,
-  	ProgressComponent,
-  	Graficas1Component
+  exports: [
+    PagesComponent,
+    DashboardComponent,
+    ProgressComponent,
+    Graficas1Component
   ],
   imports: [
-  	SharedModule,
+    SharedModule,
     PAGES_ROUTES,
     FormsModule,
     ChartsModule
@@ -40,4 +44,4 @@ import { AccoutSettingsComponent } from './accout-settings/accout-settings.compo
 
 })
 
-export class PagesModule{ }
+export class PagesModule { }
