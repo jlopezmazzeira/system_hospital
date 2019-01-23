@@ -15,27 +15,27 @@ export class AccoutSettingsComponent implements OnInit {
     this.colocarCheck();
   }
 
-  cambiarColor(tema: string, link: any){
+  cambiarColor(tema: string, link: any) {
     this.aplicarCheck(link);
     this._ajustes.aplicarTema(tema);
   }
 
-  aplicarCheck(link: any){
-    let selectores: any = document.getElementsByClassName('selector');
+  aplicarCheck(link: any) {
+    const selectores: any = document.getElementsByClassName('selector');
 
-    for(let ref of selectores){
+    for (const ref of selectores) {
       ref.classList.remove('working');
     }
 
     link.classList.add('working');
   }
 
-  colocarCheck(){
-    let selectores: any = document.getElementsByClassName('selector');
-    let tema = this._ajustes.ajustes.tema;
+  colocarCheck() {
+    const selectores: any = document.getElementsByClassName('selector');
+    const tema = this._ajustes.ajustes.tema;
 
-    for(let ref of selectores){
-      if(ref.getAttribute('data-theme') === tema){
+    for (const ref of selectores) {
+      if (ref.getAttribute('data-theme') === tema) {
         ref.classList.add('working');
         break;
       }
