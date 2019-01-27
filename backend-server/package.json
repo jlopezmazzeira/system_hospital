@@ -1,22 +1,23 @@
 {
-  "name": "backend-server",
-  "version": "1.0.0",
-  "description": "Servidor backend para la aplicación",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Jesus Lopez",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^3.0.3",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "jsonwebtoken": "^8.4.0",
-    "mongoose-unique-validator": "^2.0.2"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.9"
-  }
+    "name": "backend-server",
+    "version": "1.0.0",
+    "description": "Servidor backend para la aplicación",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Jesus Lopez",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.18.3",
+        "express": "^4.16.4",
+        "jsonwebtoken": "^8.4.0",
+        "mongoose": "^5.4.6",
+        "mongoose-unique-validator": "^2.0.2"
+    },
+    "devDependencies": {
+        "nodemon": "^1.18.9"
+    }
 }

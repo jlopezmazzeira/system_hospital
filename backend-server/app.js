@@ -17,11 +17,14 @@ var usuarioRoutes = require('./routes/usuario');
 var loginRoutes = require('./routes/login');
 
 //Conexión DB
-mongoose.connection.openUri('mongodb://localhost:2701/hospitalDB', (err, resp) => {
+var url = "mongodb://localhost:27017/hospitalDB";
+mongoose.set('useCreateIndex', true);
+mongoose.connect(url, { useNewUrlParser: true }, (err, res) => {
     if (err) throw err;
 
     console.log('Base de datos: \x1b[32m%s\x1b[0m', 'online');
 });
+mongoose.set('useCreateIndex', true);
 
 //Rutas
 app.use('/usuario', usuarioRoutes);
