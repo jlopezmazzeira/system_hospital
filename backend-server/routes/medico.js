@@ -11,23 +11,33 @@ var Medico = require('../models/medico');
 // =====================================
 app.get('/', (req, resp, next) => {
 
-    Medico.find({}).exec(
-        (err, medicos) => {
-            if (err) {
-                return resp.status(500).json({
-                    ok: false,
-                    mensaje: 'Error cargando medicos',
-                    errors: err
+    var desde = req.query.desde || 0;
+    desde = Number(desde);
+
+    Medico.find({})
+        .skip(desde)
+        .limit(5)
+        .populate('usuario', 'nombre email')
+        .populate('hospital')
+        .exec(
+            (err, medicos) => {
+                if (err) {
+                    return resp.status(500).json({
+                        ok: false,
+                        mensaje: 'Error cargando medicos',
+                        errors: err
+                    });
+                }
+
+                Medico.count({}, (err, conteo) => {
+                    resp.status(200).json({
+                        ok: true,
+                        medicos: medicos,
+                        total: conteo
+                    });
                 });
             }
-
-            resp.status(200).json({
-                ok: true,
-                medicos: medicos
-            });
-
-        }
-    );
+        );
 });
 
 // =====================================
