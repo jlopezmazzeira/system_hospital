@@ -42,7 +42,8 @@ app.get('/', (req, resp, next) => {
 // =====================================
 // CREAR USUARIO  
 // =====================================
-app.post('/', mdAutenticacion.verificaToken, (req, resp) => {
+// app.post('/', mdAutenticacion.verificaToken, (req, resp) => {
+app.post('/', (req, resp) => {
 
     var body = req.body;
 

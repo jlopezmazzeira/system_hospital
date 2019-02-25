@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     init_plugins();
   }
 
-  ingresar(){
+  ingresar() {
     this.router.navigate(['/dashboard']);
   }
 
