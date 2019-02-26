@@ -36,7 +36,7 @@ async function verify(token) {
     }
 }
 
-app.post('/goole', async(req, resp) => {
+app.post('/google', async(req, resp) => {
     var token = req.body.token;
     var gooleUSer = await verify(token)
         .catch(e => {
@@ -83,11 +83,12 @@ app.post('/goole', async(req, resp) => {
             usuario.google = true;
             usuario.password = ':)';
 
-            usario.save((err, usuarioDB) => {
+            usuario.save((err, usuarioDB) => {
                 if (err) {
                     return resp.status(400).json({
                         ok: false,
                         mensaje: 'Error al crear usuario',
+                        email: usuario.email,
                         errors: err
                     });
                 }
