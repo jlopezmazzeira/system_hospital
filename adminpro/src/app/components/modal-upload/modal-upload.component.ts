@@ -8,7 +8,7 @@ import { ModalUploadService } from './modal-upload.service';
   styles: []
 })
 export class ModalUploadComponent implements OnInit {
-  
+
   imagenSubir: File;
   imagenTemp: string;
 
@@ -19,7 +19,7 @@ export class ModalUploadComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   cerrarModal() {
     this.imagenTemp = null;
     this.imagenSubir = null;

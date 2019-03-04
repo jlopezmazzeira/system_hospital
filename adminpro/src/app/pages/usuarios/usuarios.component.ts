@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../models/usuario.model';
 import { UsuarioService } from 'src/app/services/service.index';
 import { ModalUploadService } from '../../components/modal-upload/modal-upload.service';
-//import swal from 'sweetalert';
+// import swal from 'sweetalert';
 declare var swal: any;
 
 @Component({
@@ -15,7 +15,7 @@ export class UsuariosComponent implements OnInit {
   usuarios: Usuario[] = [];
   desde = 0;
   totalRegistros = 0;
-  cargando: boolean = true;
+  cargando = true;
 
   constructor(public _usuarioService: UsuarioService,
               public _modalUploadService: ModalUploadService) { }
@@ -25,7 +25,7 @@ export class UsuariosComponent implements OnInit {
     this._modalUploadService.notificacion
     .subscribe( resp => this.cargarUsuarios());
   }
-  
+
   mostrarModal(id: string) {
     this._modalUploadService.mostrarModal('usuarios', id);
   }
@@ -59,7 +59,7 @@ export class UsuariosComponent implements OnInit {
 
   buscarUsusario(termino: string) {
 
-    if(termino.length <= 0){
+    if (termino.length <= 0) {
       this.cargarUsuarios();
       return;
     }
@@ -74,7 +74,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   borrarUsuario(usuario: Usuario) {
-    if(usuario._id === this._usuarioService.usuario._id) {
+    if (usuario._id === this._usuarioService.usuario._id) {
       swal('No puede borrar usuario', 'No se puede borrar a si mismo', 'error');
       return;
     }

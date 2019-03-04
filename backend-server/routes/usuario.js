@@ -92,7 +92,7 @@ app.put('/:id', mdAutenticacion.verificaToken, (req, resp) => {
             });
         }
 
-        if (!usario) {
+        if (!usuario) {
             return resp.status(400).json({
                 ok: false,
                 mensaje: 'El usuario con el id ' + id + ' no existe',
@@ -104,7 +104,7 @@ app.put('/:id', mdAutenticacion.verificaToken, (req, resp) => {
         usuario.email = body.email;
         usuario.role = body.role;
 
-        usario.save((err, usuarioGuardado) => {
+        usuario.save((err, usuarioGuardado) => {
             if (err) {
                 return resp.status(400).json({
                     ok: false,

@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Médico</h3>
+            <p class="text-muted m-b-30 font-13"> Bootstrap Elements </p>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarMedico(f)">
+                        <div class="form-group">
+                            <label>Nombre del médico</label>
+                            <input [(ngModel)]="medico.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre del médico" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Hospital</label>
+                            <select [(ngModel)]="medico.hospital" name="hospital" class="form-control" required>
+                          <option value="">Seleccione Hospital</option>
+                          <option *ngFor="let hospital of hospitales" [value]="hospital._id">{{hospital.nombre}}</option>
+                        </select>
+                        </div>
+                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                      <i class="fa fa-save"></i>
+                      Guardar
+                    </button>
+                        <button [routerLink]="['/medicos']" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-body">
+            <h4 class="box-title m-b-0">Hospital</h4>
+            <img src="" alt="">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-body">
+            <h4 class="box-title m-b-0">Fotogrfía</h4>
+            <img src="" alt="">
+        </div>
+    </div>
+</div>
