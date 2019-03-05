@@ -22,11 +22,11 @@ export class MedicoComponent implements OnInit {
               public router: Router,
               public activatedRoute: ActivatedRoute,
               public _modalUploadService: ModalUploadService) {
-    
-    activatedRoute.params.subscribe( params => {
-      let id = params['id'];
 
-      if( id !== 'nuevo') {
+    activatedRoute.params.subscribe( params => {
+      const id = params['id'];
+
+      if (id !== 'nuevo') {
         this.cargarMedico(id);
       }
     });
@@ -57,10 +57,10 @@ export class MedicoComponent implements OnInit {
     }
 
     this._medicoService.guardarMedico(this.medico)
-    .subscribe(
+    .subscribe(medico => {
       this.medico._id = medico._id;
       this.router.navigate(['/medico', medico._id]);
-    );
+    });
 
   }
 
@@ -71,7 +71,6 @@ export class MedicoComponent implements OnInit {
 
   cambiarFoto() {
     this._modalUploadService.mostrarModal('medicos', this.medico._id);
-
   }
 
 }
