@@ -10,7 +10,7 @@ import { ModalUploadService } from './modal-upload.service';
 export class ModalUploadComponent implements OnInit {
 
   imagenSubir: File;
-  imagenTemp: string;
+  imagenTemp: any;
 
   constructor(
             public _subirArchivoService: SubirArchivoService,
@@ -44,7 +44,7 @@ export class ModalUploadComponent implements OnInit {
     const reader = new FileReader();
     const urlImagenTemp = reader.readAsDataURL(archivo);
 
-    reader.onloadend = () => this.imagenTemp = reader.result;
+    this.imagenTemp = reader.result;
    }
 
    subirImagen() {
