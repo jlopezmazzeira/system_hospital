@@ -9,6 +9,7 @@ import { AccoutSettingsComponent } from './accout-settings/accout-settings.compo
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { LoginGuardGuard } from '../services/service.index';
+import { AdminGuard } from '../services/service.index';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
@@ -32,7 +33,12 @@ export const pagesRoutes: Routes = [
       { path: 'rxjs', component: RxjsComponent, data: {titulo: 'Rxjs'} },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       // Mantenimientos
-      { path: 'usuarios', component: UsuariosComponent, data: {titulo: 'Mantenimiento de Usuarios'}},
+      {
+        path: 'usuarios',
+        component: UsuariosComponent,
+        canActivate: [ AdminGuard ],
+        data: {titulo: 'Mantenimiento de Usuarios'}
+      },
       { path: 'hospitales', component: HospitalesComponent, data: {titulo: 'Mantenimiento de Hospitales'}},
       { path: 'medicos', component: MedicosComponent, data: {titulo: 'Mantenimiento de Médicos'}},
       { path: 'medico/:id', component: MedicoComponent, data: {titulo: 'Actualizar Médico'}}

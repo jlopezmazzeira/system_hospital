@@ -42,8 +42,7 @@ app.get('/', (req, resp, next) => {
 // =====================================
 // CREAR USUARIO  
 // =====================================
-// app.post('/', mdAutenticacion.verificaToken, (req, resp) => {
-app.post('/', (req, resp) => {
+app.post('/', [mdAutenticacion.verificaToken, mdAutenticacion.verificaAdmin], (req, resp) => {
 
     var body = req.body;
 
@@ -77,7 +76,7 @@ app.post('/', (req, resp) => {
 // =====================================
 // ACTUALIZAR USUARIO  
 // =====================================
-app.put('/:id', mdAutenticacion.verificaToken, (req, resp) => {
+app.put('/:id', [mdAutenticacion.verificaToken, mdAutenticacion.verificaAdminOMismoUsuario], (req, resp) => {
 
     var id = req.params.id;
 
@@ -129,7 +128,7 @@ app.put('/:id', mdAutenticacion.verificaToken, (req, resp) => {
 // =====================================
 // ELIMINAR USUARIO  
 // =====================================
-app.delete('/:id', mdAutenticacion.verificaToken, (req, resp) => {
+app.delete('/:id', [mdAutenticacion.verificaToken, mdAutenticacion.verificaAdmin], (req, resp) => {
 
     var id = req.params.id;
 

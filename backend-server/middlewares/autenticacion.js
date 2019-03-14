@@ -22,3 +22,40 @@ exports.verificaToken = function(req, resp, next) {
         next();
     });
 }
+
+// =====================================
+// VERIFICAR ADMIN  
+// =====================================
+exports.verificaAdmin = function(req, resp, next) {
+    var usuario = req.usuario;
+
+    if (usuario.role === 'ADMIN_ROLE') {
+        next();
+        return;
+    } else {
+        return resp.status(401).json({
+            ok: false,
+            mensaje: 'No tienes los permisos suficientes',
+            errors: { message: 'Acceso Denegado' }
+        });
+    }
+}
+
+// =====================================
+// VERIFICAR ADMIN O MISMO USUARIO
+// =====================================
+exports.verificaAdminOMismoUsuario = function(req, resp, next) {
+    var usuario = req.usuario;
+    var id = req.params.id;
+
+    if (usuario.role === 'ADMIN_ROLE' || usuario._id === id) {
+        next();
+        return;
+    } else {
+        return resp.status(401).json({
+            ok: false,
+            mensaje: 'No tienes los permisos suficientes',
+            errors: { message: 'Acceso Denegado' }
+        });
+    }
+}
