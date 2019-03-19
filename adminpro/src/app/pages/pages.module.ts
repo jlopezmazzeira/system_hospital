@@ -48,7 +48,7 @@ import { BuscadorComponent } from './buscador/buscador.component';
     BuscadorComponent
   ],
   exports: [
-    PagesComponent,
+    // PagesComponent,
     DashboardComponent,
     ProgressComponent,
     Graficas1Component
